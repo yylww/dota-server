@@ -1,0 +1,62 @@
+import { Injectable } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
+import * as bcrypt from 'bcrypt';
+
+export const roundsOfHashing = 10;
+
+@Injectable()
+export class UsersService {
+  constructor(private prisma: PrismaService) {}
+
+  async create(createUserDto: CreateUserDto) {
+    const hashedPassword = await bcrypt.hash(
+      createUserDto.password,
+      roundsOfHashing,
+    );
+    createUserDto.password = hashedPassword;
+    return this.prisma.user.create({ data: createUserDto });
+  }
+
+  findAll() {
+    return this.prisma.user.findMany();
+  }
+
+  findOneById(id: number) {
+    return this.prisma.user.findUnique({ where: { id }});
+  }
+
+  // 通过用户名（邮箱或手机号）查询用户，用于登录验证
+  findOneByUsername(username: string) {
+    return this.prisma.user.findUnique({ 
+      where: {
+        email: username,
+      },
+      // where: { 
+      //   OR: [
+      //     { email: username },
+      //     { phone: username },
+      //   ],
+      // },
+    })
+  }
+
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const { password } = updateUserDto
+    if (password) {
+      updateUserDto.password = await bcrypt.hash(
+        password,
+        roundsOfHashing,
+      )
+    }
+    return this.prisma.user.update({
+      where: { id },
+      data: updateUserDto,
+    });
+  }
+
+  remove(id: number) {
+    return this.prisma.user.delete({ where: { id }});
+  }
+}

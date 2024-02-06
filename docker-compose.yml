@@ -1,0 +1,31 @@
+# docker-compose.yml
+
+version: '3.8'
+services:
+
+  postgres:
+    image: postgres:13.5
+    restart: always
+    environment:
+      - POSTGRES_USER=kvo
+      - POSTGRES_PASSWORD=gbfhtenYY0305
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  # mysql:
+  #   image: mysql:latest
+  #   restart: always
+  #   container_name: mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=gbfhtenYY0305
+  #     - MYSQL_DATABASE=develop
+  #     - TZ=Asia/Shanghai
+  #   ports:
+  #     - '3306:3306'
+  #   volumes:
+  #     - mysql:/var/lib/mysql/data
+
+volumes:
+  postgres:
