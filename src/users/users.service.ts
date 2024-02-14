@@ -27,21 +27,6 @@ export class UsersService {
     return this.prisma.user.findUnique({ where: { id }});
   }
 
-  // 通过用户名（邮箱或手机号）查询用户，用于登录验证
-  findOneByUsername(username: string) {
-    return this.prisma.user.findUnique({ 
-      where: {
-        email: username,
-      },
-      // where: { 
-      //   OR: [
-      //     { email: username },
-      //     { phone: username },
-      //   ],
-      // },
-    })
-  }
-
   async update(id: number, updateUserDto: UpdateUserDto) {
     const { password } = updateUserDto
     if (password) {

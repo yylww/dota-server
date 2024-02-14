@@ -13,8 +13,8 @@ model Article {
   description String?
   body        String
   published   Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
   author      User?    @relation(fields: [authorId], references: [id])
   authorId    Int?
 }
@@ -24,7 +24,7 @@ model User {
   name      String?
   email     String    @unique
   password  String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime  @updatedAt @db.Timestamptz(6)
   articles  Article[]
 }
