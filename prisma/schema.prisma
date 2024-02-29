@@ -7,24 +7,51 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Article {
-  id          Int      @id @default(autoincrement())
-  title       String   @unique
-  description String?
-  body        String
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
-  author      User?    @relation(fields: [authorId], references: [id])
-  authorId    Int?
+model Hero {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  cname     String   @unique
+  avatar    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Region {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  cname     String   @unique
+  teams     Team[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  logo      String
+  region    Region   @relation(fields: [regionId], references: [id])
+  regionId  Int
+  players   Player[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Player {
+  id        Int      @id @default(autoincrement())
+  gameId    String
+  name      String
+  position  String
+  team      Team     @relation(fields: [teamId], references: [id])
+  teamId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   name      String?
-  email     String    @unique
+  email     String   @unique
   password  String
-  createdAt DateTime  @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime  @updatedAt @db.Timestamptz(6)
-  articles  Article[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

@@ -14,18 +14,5 @@ services:
     ports:
       - '5432:5432'
 
-  # mysql:
-  #   image: mysql:latest
-  #   restart: always
-  #   container_name: mysql
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=gbfhtenYY0305
-  #     - MYSQL_DATABASE=develop
-  #     - TZ=Asia/Shanghai
-  #   ports:
-  #     - '3306:3306'
-  #   volumes:
-  #     - mysql:/var/lib/mysql/data
-
 volumes:
   postgres:
