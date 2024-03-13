@@ -1,0 +1,776 @@
+[
+  {
+    "id": 898754153,
+    "nickname": "Ame^^",
+    "position": "1",
+    "status": 0,
+    "teamId": 8261500,
+    "createdAt": "2024-03-12T04:29:03.116Z",
+    "updatedAt": "2024-03-12T04:29:03.116Z"
+  },
+  {
+    "id": 137129583,
+    "nickname": "Xm",
+    "position": "2",
+    "status": 0,
+    "teamId": 8261500,
+    "createdAt": "2024-03-12T04:29:03.378Z",
+    "updatedAt": "2024-03-12T04:29:03.378Z"
+  },
+  {
+    "id": 129958758,
+    "nickname": "Xxs",
+    "position": "3",
+    "status": 0,
+    "teamId": 8261500,
+    "createdAt": "2024-03-12T04:29:04.409Z",
+    "updatedAt": "2024-03-12T04:29:04.409Z"
+  },
+  {
+    "id": 157475523,
+    "nickname": "XinQ",
+    "position": "4",
+    "status": 0,
+    "teamId": 8261500,
+    "createdAt": "2024-03-12T04:29:04.670Z",
+    "updatedAt": "2024-03-12T04:29:04.670Z"
+  },
+  {
+    "id": 143693439,
+    "nickname": "Dy",
+    "position": "5",
+    "status": 0,
+    "teamId": 8261500,
+    "createdAt": "2024-03-12T04:29:05.226Z",
+    "updatedAt": "2024-03-12T04:29:05.226Z"
+  },
+  {
+    "id": 148215639,
+    "nickname": "Monet",
+    "position": "1",
+    "status": 0,
+    "teamId": 5,
+    "createdAt": "2024-03-12T04:38:18.360Z",
+    "updatedAt": "2024-03-12T04:38:18.360Z"
+  },
+  {
+    "id": 173978074,
+    "nickname": "NothingToSay",
+    "position": "2",
+    "status": 0,
+    "teamId": 5,
+    "createdAt": "2024-03-12T04:38:18.628Z",
+    "updatedAt": "2024-03-12T04:38:18.628Z"
+  },
+  {
+    "id": 138857296,
+    "nickname": "JT-",
+    "position": "3",
+    "status": 0,
+    "teamId": 5,
+    "createdAt": "2024-03-12T04:38:18.880Z",
+    "updatedAt": "2024-03-12T04:38:18.880Z"
+  },
+  {
+    "id": 207829314,
+    "nickname": "BoBoKa",
+    "position": "4",
+    "status": 0,
+    "teamId": 5,
+    "createdAt": "2024-03-12T04:38:19.141Z",
+    "updatedAt": "2024-03-12T04:38:19.141Z"
+  },
+  {
+    "id": 94296097,
+    "nickname": "xNova",
+    "position": "5",
+    "status": 0,
+    "teamId": 5,
+    "createdAt": "2024-03-12T04:38:19.392Z",
+    "updatedAt": "2024-03-12T04:38:19.392Z"
+  },
+  {
+    "id": 320252024,
+    "nickname": "shiro",
+    "position": "1",
+    "status": 0,
+    "teamId": 15,
+    "createdAt": "2024-03-12T04:39:42.745Z",
+    "updatedAt": "2024-03-12T04:39:42.745Z"
+  },
+  {
+    "id": 139822354,
+    "nickname": "Setsu",
+    "position": "2",
+    "status": 0,
+    "teamId": 15,
+    "createdAt": "2024-03-12T04:39:43.007Z",
+    "updatedAt": "2024-03-12T04:39:43.007Z"
+  },
+  {
+    "id": 145957968,
+    "nickname": "niu",
+    "position": "3",
+    "status": 0,
+    "teamId": 15,
+    "createdAt": "2024-03-12T04:39:43.248Z",
+    "updatedAt": "2024-03-12T04:39:43.248Z"
+  },
+  {
+    "id": 138543123,
+    "nickname": "Pyw",
+    "position": "4",
+    "status": 0,
+    "teamId": 15,
+    "createdAt": "2024-03-12T04:39:43.487Z",
+    "updatedAt": "2024-03-12T04:39:43.487Z"
+  },
+  {
+    "id": 111114687,
+    "nickname": "WhyouSm1Le",
+    "position": "5",
+    "status": 0,
+    "teamId": 15,
+    "createdAt": "2024-03-12T04:39:43.728Z",
+    "updatedAt": "2024-03-12T04:39:43.728Z"
+  },
+  {
+    "id": 185908355,
+    "nickname": "Lou",
+    "position": "1",
+    "status": 0,
+    "teamId": 8574561,
+    "createdAt": "2024-03-12T04:40:44.613Z",
+    "updatedAt": "2024-03-12T04:40:44.613Z"
+  },
+  {
+    "id": 107803494,
+    "nickname": "Ori",
+    "position": "2",
+    "status": 0,
+    "teamId": 8574561,
+    "createdAt": "2024-03-12T04:40:44.876Z",
+    "updatedAt": "2024-03-12T04:40:44.876Z"
+  },
+  {
+    "id": 118134220,
+    "nickname": "Bach",
+    "position": "3",
+    "status": 0,
+    "teamId": 8574561,
+    "createdAt": "2024-03-12T04:40:45.159Z",
+    "updatedAt": "2024-03-12T04:40:45.159Z"
+  },
+  {
+    "id": 101695162,
+    "nickname": "fy",
+    "position": "4",
+    "status": 0,
+    "teamId": 8574561,
+    "createdAt": "2024-03-12T04:40:45.471Z",
+    "updatedAt": "2024-03-12T04:40:45.471Z"
+  },
+  {
+    "id": 158847773,
+    "nickname": "天命",
+    "position": "5",
+    "status": 0,
+    "teamId": 8574561,
+    "createdAt": "2024-03-12T04:40:45.986Z",
+    "updatedAt": "2024-03-12T04:40:45.986Z"
+  },
+  {
+    "id": 100058342,
+    "nickname": "skiter",
+    "position": "1",
+    "status": 0,
+    "teamId": 9247354,
+    "createdAt": "2024-03-12T04:51:25.630Z",
+    "updatedAt": "2024-03-12T04:51:25.630Z"
+  },
+  {
+    "id": 898455820,
+    "nickname": "Malr1ne",
+    "position": "2",
+    "status": 0,
+    "teamId": 9247354,
+    "createdAt": "2024-03-12T04:51:25.634Z",
+    "updatedAt": "2024-03-12T04:51:25.634Z"
+  },
+  {
+    "id": 183719386,
+    "nickname": "ATF",
+    "position": "3",
+    "status": 0,
+    "teamId": 9247354,
+    "createdAt": "2024-03-12T04:51:25.636Z",
+    "updatedAt": "2024-03-12T04:51:25.636Z"
+  },
+  {
+    "id": 25907144,
+    "nickname": "Cr1t-",
+    "position": "4",
+    "status": 0,
+    "teamId": 9247354,
+    "createdAt": "2024-03-12T04:51:25.639Z",
+    "updatedAt": "2024-03-12T04:51:25.639Z"
+  },
+  {
+    "id": 10366616,
+    "nickname": "Sneyking",
+    "position": "5",
+    "status": 0,
+    "teamId": 9247354,
+    "createdAt": "2024-03-12T04:51:25.641Z",
+    "updatedAt": "2024-03-12T04:51:25.641Z"
+  },
+  {
+    "id": 124801257,
+    "nickname": "Nightfall",
+    "position": "1",
+    "status": 0,
+    "teamId": 8255888,
+    "createdAt": "2024-03-12T04:56:58.016Z",
+    "updatedAt": "2024-03-12T04:56:58.016Z"
+  },
+  {
+    "id": 480412663,
+    "nickname": "gpk~",
+    "position": "2",
+    "status": 0,
+    "teamId": 8255888,
+    "createdAt": "2024-03-12T04:56:58.272Z",
+    "updatedAt": "2024-03-12T04:56:58.272Z"
+  },
+  {
+    "id": 165564598,
+    "nickname": "MieRo`",
+    "position": "3",
+    "status": 0,
+    "teamId": 8255888,
+    "createdAt": "2024-03-12T04:56:58.528Z",
+    "updatedAt": "2024-03-12T04:56:58.528Z"
+  },
+  {
+    "id": 317880638,
+    "nickname": "Save-",
+    "position": "4",
+    "status": 0,
+    "teamId": 8255888,
+    "createdAt": "2024-03-12T04:56:58.784Z",
+    "updatedAt": "2024-03-12T04:56:58.784Z"
+  },
+  {
+    "id": 431770905,
+    "nickname": "TORONTOTOKYO",
+    "position": "5",
+    "status": 0,
+    "teamId": 8255888,
+    "createdAt": "2024-03-12T04:56:59.037Z",
+    "updatedAt": "2024-03-12T04:56:59.037Z"
+  },
+  {
+    "id": 93618577,
+    "nickname": "bzm",
+    "position": "2",
+    "status": 0,
+    "teamId": 2586976,
+    "createdAt": "2024-03-12T11:01:53.952Z",
+    "updatedAt": "2024-03-12T11:01:53.952Z"
+  },
+  {
+    "id": 292921272,
+    "nickname": "Wisper",
+    "position": "3",
+    "status": 0,
+    "teamId": 2586976,
+    "createdAt": "2024-03-12T11:01:53.955Z",
+    "updatedAt": "2024-03-12T11:01:53.955Z"
+  },
+  {
+    "id": 346412363,
+    "nickname": "Ari",
+    "position": "4",
+    "status": 0,
+    "teamId": 2586976,
+    "createdAt": "2024-03-12T11:01:53.957Z",
+    "updatedAt": "2024-03-12T11:01:53.957Z"
+  },
+  {
+    "id": 88271237,
+    "nickname": "Ceb",
+    "position": "5",
+    "status": 0,
+    "teamId": 2586976,
+    "createdAt": "2024-03-12T11:01:53.959Z",
+    "updatedAt": "2024-03-12T11:01:53.959Z"
+  },
+  {
+    "id": 116934015,
+    "nickname": "dyrachyo",
+    "position": "1",
+    "status": 0,
+    "teamId": 8599101,
+    "createdAt": "2024-03-12T11:06:21.072Z",
+    "updatedAt": "2024-03-12T11:06:21.072Z"
+  },
+  {
+    "id": 221666230,
+    "nickname": "Quinn",
+    "position": "2",
+    "status": 0,
+    "teamId": 8599101,
+    "createdAt": "2024-03-12T11:06:21.578Z",
+    "updatedAt": "2024-03-12T11:06:21.578Z"
+  },
+  {
+    "id": 97590558,
+    "nickname": "Ace ♠",
+    "position": "3",
+    "status": 0,
+    "teamId": 8599101,
+    "createdAt": "2024-03-12T11:06:21.850Z",
+    "updatedAt": "2024-03-12T11:06:21.850Z"
+  },
+  {
+    "id": 16497807,
+    "nickname": "tOfu",
+    "position": "4",
+    "status": 0,
+    "teamId": 8599101,
+    "createdAt": "2024-03-12T11:06:22.096Z",
+    "updatedAt": "2024-03-12T11:06:22.096Z"
+  },
+  {
+    "id": 91730177,
+    "nickname": "Seleri",
+    "position": "5",
+    "status": 0,
+    "teamId": 8599101,
+    "createdAt": "2024-03-12T11:06:22.338Z",
+    "updatedAt": "2024-03-12T11:06:22.338Z"
+  },
+  {
+    "id": 152962063,
+    "nickname": "m1CKe",
+    "position": "1",
+    "status": 0,
+    "teamId": 2163,
+    "createdAt": "2024-03-12T11:08:52.889Z",
+    "updatedAt": "2024-03-12T11:08:52.889Z"
+  },
+  {
+    "id": 201358612,
+    "nickname": "Nisha",
+    "position": "2",
+    "status": 0,
+    "teamId": 2163,
+    "createdAt": "2024-03-12T11:08:53.132Z",
+    "updatedAt": "2024-03-12T11:08:53.132Z"
+  },
+  {
+    "id": 86698277,
+    "nickname": "33",
+    "position": "3",
+    "status": 0,
+    "teamId": 2163,
+    "createdAt": "2024-03-12T11:08:53.377Z",
+    "updatedAt": "2024-03-12T11:08:53.377Z"
+  },
+  {
+    "id": 77490514,
+    "nickname": "Boxi",
+    "position": "4",
+    "status": 0,
+    "teamId": 2163,
+    "createdAt": "2024-03-12T11:08:53.649Z",
+    "updatedAt": "2024-03-12T11:08:53.649Z"
+  },
+  {
+    "id": 54580962,
+    "nickname": "Insania",
+    "position": "5",
+    "status": 0,
+    "teamId": 2163,
+    "createdAt": "2024-03-12T11:08:54.170Z",
+    "updatedAt": "2024-03-12T11:08:54.170Z"
+  },
+  {
+    "id": 127617979,
+    "nickname": "Crystallis",
+    "position": "1",
+    "status": 0,
+    "teamId": 1838315,
+    "createdAt": "2024-03-12T11:14:10.546Z",
+    "updatedAt": "2024-03-12T11:14:10.546Z"
+  },
+  {
+    "id": 262838756,
+    "nickname": "Kordan",
+    "position": "2",
+    "status": 0,
+    "teamId": 1838315,
+    "createdAt": "2024-03-12T11:14:10.811Z",
+    "updatedAt": "2024-03-12T11:14:10.811Z"
+  },
+  {
+    "id": 190826739,
+    "nickname": "BOOM",
+    "position": "3",
+    "status": 0,
+    "teamId": 1838315,
+    "createdAt": "2024-03-12T11:14:11.073Z",
+    "updatedAt": "2024-03-12T11:14:11.073Z"
+  },
+  {
+    "id": 230487729,
+    "nickname": "Ekki",
+    "position": "4",
+    "status": 0,
+    "teamId": 1838315,
+    "createdAt": "2024-03-12T11:14:11.337Z",
+    "updatedAt": "2024-03-12T11:14:11.337Z"
+  },
+  {
+    "id": 87278757,
+    "nickname": "Puppey",
+    "position": "5",
+    "status": 0,
+    "teamId": 1838315,
+    "createdAt": "2024-03-12T11:14:11.631Z",
+    "updatedAt": "2024-03-12T11:14:11.631Z"
+  },
+  {
+    "id": 331855530,
+    "nickname": "Pure~",
+    "position": "1",
+    "status": 0,
+    "teamId": 8291895,
+    "createdAt": "2024-03-12T11:22:25.317Z",
+    "updatedAt": "2024-03-12T11:22:25.317Z"
+  },
+  {
+    "id": 94054712,
+    "nickname": "Topson",
+    "position": "2",
+    "status": 0,
+    "teamId": 8291895,
+    "createdAt": "2024-03-12T11:22:25.571Z",
+    "updatedAt": "2024-03-12T11:22:25.571Z"
+  },
+  {
+    "id": 164199202,
+    "nickname": "9Class",
+    "position": "4",
+    "status": 0,
+    "teamId": 8291895,
+    "createdAt": "2024-03-12T11:22:26.126Z",
+    "updatedAt": "2024-03-12T11:22:26.126Z"
+  },
+  {
+    "id": 136829091,
+    "nickname": "Whitemon",
+    "position": "5",
+    "status": 0,
+    "teamId": 8291895,
+    "createdAt": "2024-03-12T11:22:26.430Z",
+    "updatedAt": "2024-03-12T11:22:26.430Z"
+  },
+  {
+    "id": 117514269,
+    "nickname": "laise",
+    "position": "3",
+    "status": 1,
+    "teamId": 8291895,
+    "createdAt": "2024-03-12T11:38:09.421Z",
+    "updatedAt": "2024-03-12T11:38:09.421Z"
+  },
+  {
+    "id": 34505203,
+    "nickname": "mc",
+    "position": "3",
+    "status": 1,
+    "teamId": 8291895,
+    "createdAt": "2024-03-12T11:22:25.843Z",
+    "updatedAt": "2024-03-12T11:46:25.388Z"
+  },
+  {
+    "id": 172099728,
+    "nickname": "Kiritych~",
+    "position": "1",
+    "status": 0,
+    "teamId": 8724984,
+    "createdAt": "2024-03-12T12:37:29.975Z",
+    "updatedAt": "2024-03-12T12:37:29.975Z"
+  },
+  {
+    "id": 123023873,
+    "nickname": "squad1x",
+    "position": "2",
+    "status": 0,
+    "teamId": 8724984,
+    "createdAt": "2024-03-12T12:37:30.257Z",
+    "updatedAt": "2024-03-12T12:37:30.257Z"
+  },
+  {
+    "id": 195108598,
+    "nickname": "Noticed",
+    "position": "3",
+    "status": 0,
+    "teamId": 8724984,
+    "createdAt": "2024-03-12T12:37:30.930Z",
+    "updatedAt": "2024-03-12T12:37:30.930Z"
+  },
+  {
+    "id": 145065875,
+    "nickname": "sayuw",
+    "position": "4",
+    "status": 0,
+    "teamId": 8724984,
+    "createdAt": "2024-03-12T12:37:31.176Z",
+    "updatedAt": "2024-03-12T12:37:31.176Z"
+  },
+  {
+    "id": 94049589,
+    "nickname": "Fng",
+    "position": "5",
+    "status": 0,
+    "teamId": 8724984,
+    "createdAt": "2024-03-12T12:37:31.420Z",
+    "updatedAt": "2024-03-12T12:37:31.420Z"
+  },
+  {
+    "id": 97658618,
+    "nickname": "Timado",
+    "position": "1",
+    "status": 0,
+    "teamId": 2586976,
+    "createdAt": "2024-03-12T11:01:53.946Z",
+    "updatedAt": "2024-03-12T12:48:36.016Z"
+  },
+  {
+    "id": 164685175,
+    "nickname": "K1",
+    "position": "1",
+    "status": 0,
+    "teamId": 9303484,
+    "createdAt": "2024-03-12T12:49:47.091Z",
+    "updatedAt": "2024-03-12T12:49:47.091Z"
+  },
+  {
+    "id": 131303632,
+    "nickname": "4nalog",
+    "position": "2",
+    "status": 0,
+    "teamId": 9303484,
+    "createdAt": "2024-03-12T12:49:47.098Z",
+    "updatedAt": "2024-03-12T12:49:47.098Z"
+  },
+  {
+    "id": 138880576,
+    "nickname": "Davai Lama",
+    "position": "3",
+    "status": 0,
+    "teamId": 9303484,
+    "createdAt": "2024-03-12T12:49:47.100Z",
+    "updatedAt": "2024-03-12T12:49:47.100Z"
+  },
+  {
+    "id": 157989498,
+    "nickname": "Scofield",
+    "position": "4",
+    "status": 0,
+    "teamId": 9303484,
+    "createdAt": "2024-03-12T12:49:47.103Z",
+    "updatedAt": "2024-03-12T12:49:47.103Z"
+  },
+  {
+    "id": 81306398,
+    "nickname": "KJ",
+    "position": "5",
+    "status": 0,
+    "teamId": 9303484,
+    "createdAt": "2024-03-12T12:49:47.105Z",
+    "updatedAt": "2024-03-12T12:49:47.105Z"
+  },
+  {
+    "id": 86745912,
+    "nickname": "天鸽",
+    "position": "1",
+    "status": 0,
+    "teamId": 39,
+    "createdAt": "2024-03-12T12:56:16.486Z",
+    "updatedAt": "2024-03-12T12:56:16.486Z"
+  },
+  {
+    "id": 324277900,
+    "nickname": "Yopaj-",
+    "position": "2",
+    "status": 0,
+    "teamId": 39,
+    "createdAt": "2024-03-12T12:56:16.891Z",
+    "updatedAt": "2024-03-12T12:56:16.891Z"
+  },
+  {
+    "id": 126212866,
+    "nickname": "SaberLight",
+    "position": "3",
+    "status": 0,
+    "teamId": 39,
+    "createdAt": "2024-03-12T12:56:17.173Z",
+    "updatedAt": "2024-03-12T12:56:17.173Z"
+  },
+  {
+    "id": 105045291,
+    "nickname": "Thiolicor",
+    "position": "4",
+    "status": 0,
+    "teamId": 39,
+    "createdAt": "2024-03-12T12:56:17.455Z",
+    "updatedAt": "2024-03-12T12:56:17.455Z"
+  },
+  {
+    "id": 187824320,
+    "nickname": "Kitrak",
+    "position": "5",
+    "status": 0,
+    "teamId": 39,
+    "createdAt": "2024-03-12T12:56:17.761Z",
+    "updatedAt": "2024-03-12T12:56:17.761Z"
+  },
+  {
+    "id": 375507918,
+    "nickname": "23",
+    "position": "1",
+    "status": 0,
+    "teamId": 9255706,
+    "createdAt": "2024-03-12T13:00:26.690Z",
+    "updatedAt": "2024-03-12T13:00:26.690Z"
+  },
+  {
+    "id": 210053851,
+    "nickname": "Armel",
+    "position": "2",
+    "status": 0,
+    "teamId": 9255706,
+    "createdAt": "2024-03-12T13:00:26.695Z",
+    "updatedAt": "2024-03-12T13:00:26.695Z"
+  },
+  {
+    "id": 100471531,
+    "nickname": "Jabz",
+    "position": "3",
+    "status": 0,
+    "teamId": 9255706,
+    "createdAt": "2024-03-12T13:00:26.697Z",
+    "updatedAt": "2024-03-12T13:00:26.697Z"
+  },
+  {
+    "id": 193815691,
+    "nickname": "Q",
+    "position": "4",
+    "status": 0,
+    "teamId": 9255706,
+    "createdAt": "2024-03-12T13:00:26.700Z",
+    "updatedAt": "2024-03-12T13:00:26.700Z"
+  },
+  {
+    "id": 101259972,
+    "nickname": "Oli",
+    "position": "5",
+    "status": 0,
+    "teamId": 9255706,
+    "createdAt": "2024-03-12T13:00:26.702Z",
+    "updatedAt": "2024-03-12T13:00:26.702Z"
+  },
+  {
+    "id": 321580662,
+    "nickname": "Yatoro雨",
+    "position": "1",
+    "status": 0,
+    "teamId": 7119388,
+    "createdAt": "2024-03-12T13:03:37.226Z",
+    "updatedAt": "2024-03-12T13:03:37.226Z"
+  },
+  {
+    "id": 106305042,
+    "nickname": "Larl",
+    "position": "2",
+    "status": 0,
+    "teamId": 7119388,
+    "createdAt": "2024-03-12T13:03:37.555Z",
+    "updatedAt": "2024-03-12T13:03:37.555Z"
+  },
+  {
+    "id": 302214028,
+    "nickname": "Collapse",
+    "position": "3",
+    "status": 0,
+    "teamId": 7119388,
+    "createdAt": "2024-03-12T13:03:37.833Z",
+    "updatedAt": "2024-03-12T13:03:37.833Z"
+  },
+  {
+    "id": 256156323,
+    "nickname": "Mira",
+    "position": "4",
+    "status": 0,
+    "teamId": 7119388,
+    "createdAt": "2024-03-12T13:03:38.322Z",
+    "updatedAt": "2024-03-12T13:03:38.322Z"
+  },
+  {
+    "id": 113331514,
+    "nickname": "Miposhka",
+    "position": "5",
+    "status": 0,
+    "teamId": 7119388,
+    "createdAt": "2024-03-12T13:03:38.568Z",
+    "updatedAt": "2024-03-12T13:03:38.568Z"
+  },
+  {
+    "id": 904131336,
+    "nickname": "Munkushi~",
+    "position": "1",
+    "status": 0,
+    "teamId": 9255039,
+    "createdAt": "2024-03-12T13:14:15.747Z",
+    "updatedAt": "2024-03-12T13:14:15.747Z"
+  },
+  {
+    "id": 312436974,
+    "nickname": "CHIRA_JUNIOR",
+    "position": "2",
+    "status": 0,
+    "teamId": 9255039,
+    "createdAt": "2024-03-12T13:14:15.753Z",
+    "updatedAt": "2024-03-12T13:14:15.753Z"
+  },
+  {
+    "id": 168126336,
+    "nickname": "Cloud",
+    "position": "3",
+    "status": 0,
+    "teamId": 9255039,
+    "createdAt": "2024-03-12T13:14:15.757Z",
+    "updatedAt": "2024-03-12T13:14:15.757Z"
+  },
+  {
+    "id": 175311897,
+    "nickname": "swedenstrong",
+    "position": "4",
+    "status": 0,
+    "teamId": 9255039,
+    "createdAt": "2024-03-12T13:14:15.760Z",
+    "updatedAt": "2024-03-12T13:14:15.760Z"
+  },
+  {
+    "id": 123787715,
+    "nickname": "RESPECT",
+    "position": "5",
+    "status": 0,
+    "teamId": 9255039,
+    "createdAt": "2024-03-12T13:14:15.785Z",
+    "updatedAt": "2024-03-12T13:14:15.785Z"
+  }
+]

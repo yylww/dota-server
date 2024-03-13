@@ -6,10 +6,10 @@ import axios from 'axios';
 import { ApiBearerAuth, ApiBody, ApiConsumes, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
+import { Public } from 'src/auth/public.decorator';
 
 @Controller('heroes')
 @ApiTags('heroes')
-@ApiBearerAuth()
 export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
 
@@ -48,6 +48,12 @@ export class HeroesController {
     return this.heroesService.findMany(+current, +pageSize, query);
   }
 
+  @Get('/all')
+  @ApiBearerAuth()
+  findAll() {
+    return this.heroesService.findAll();
+  }
+
   @Get(':id')
   @ApiBearerAuth()
   findOne(@Param('id') id: string) {
@@ -60,11 +66,11 @@ export class HeroesController {
     return this.heroesService.update(+id, updateHeroDto);
   }
 
-  @Delete(':id')
-  @ApiBearerAuth()
-  remove(@Param('id') id: string) {
-    return this.heroesService.remove(+id);
-  }
+  // @Delete(':id')
+  // @ApiBearerAuth()
+  // remove(@Param('id') id: string) {
+  //   return this.heroesService.remove(+id);
+  // }
 
   @Post('/avatar/upload')
   @ApiConsumes('multipart/form-data')

@@ -1,0 +1,155 @@
+[
+  {
+    "id": 8261500,
+    "name": "Xtreme Gaming",
+    "tag": "XG",
+    "logo": "/teams/Xtreme_Gaming.png",
+    "regionId": 5,
+    "createdAt": "2024-03-12T04:27:43.429Z",
+    "updatedAt": "2024-03-12T04:27:43.429Z"
+  },
+  {
+    "id": 8574561,
+    "name": "Azure Ray",
+    "tag": "AR",
+    "logo": "/teams/Azure_Ray.png",
+    "regionId": 5,
+    "createdAt": "2024-03-12T04:27:43.683Z",
+    "updatedAt": "2024-03-12T04:27:43.683Z"
+  },
+  {
+    "id": 15,
+    "name": "LGD Gaming",
+    "tag": "LGD",
+    "logo": "/teams/LGD_Gaming.png",
+    "regionId": 5,
+    "createdAt": "2024-03-12T04:27:43.914Z",
+    "updatedAt": "2024-03-12T04:27:43.914Z"
+  },
+  {
+    "id": 9247354,
+    "name": "Team Falcons",
+    "tag": "FLCN",
+    "logo": "/teams/Team_Falcons.png",
+    "regionId": 7,
+    "createdAt": "2024-03-12T04:51:25.613Z",
+    "updatedAt": "2024-03-12T04:51:25.613Z"
+  },
+  {
+    "id": 8255888,
+    "name": "BetBoom Team",
+    "tag": "BetBoom",
+    "logo": "/teams/BetBoom_Team.png",
+    "regionId": 4,
+    "createdAt": "2024-03-12T04:56:57.721Z",
+    "updatedAt": "2024-03-12T04:56:57.721Z"
+  },
+  {
+    "id": 2586976,
+    "name": "OG",
+    "tag": "OG",
+    "logo": "/teams/OG.png",
+    "regionId": 3,
+    "createdAt": "2024-03-12T11:01:53.935Z",
+    "updatedAt": "2024-03-12T11:01:53.935Z"
+  },
+  {
+    "id": 8599101,
+    "name": "Gaimin Gladiators",
+    "tag": "GG",
+    "logo": "/teams/Gaimin_Gladiators.png",
+    "regionId": 3,
+    "createdAt": "2024-03-12T11:06:20.586Z",
+    "updatedAt": "2024-03-12T11:06:20.586Z"
+  },
+  {
+    "id": 2163,
+    "name": "Team Liquid",
+    "tag": "Liquid",
+    "logo": "/teams/Team_Liquid.png",
+    "regionId": 3,
+    "createdAt": "2024-03-12T11:08:52.550Z",
+    "updatedAt": "2024-03-12T11:08:52.550Z"
+  },
+  {
+    "id": 1838315,
+    "name": "Team Secret",
+    "tag": "Secret",
+    "logo": "/teams/Team_Secret.png",
+    "regionId": 3,
+    "createdAt": "2024-03-12T11:14:10.280Z",
+    "updatedAt": "2024-03-12T11:14:10.280Z"
+  },
+  {
+    "id": 8291895,
+    "name": "Tundra Esports",
+    "tag": "Tundra",
+    "logo": "/teams/Tundra_Esports.png",
+    "regionId": 3,
+    "createdAt": "2024-03-12T11:22:24.728Z",
+    "updatedAt": "2024-03-12T11:22:24.728Z"
+  },
+  {
+    "id": 8724984,
+    "name": "Virtus.pro",
+    "tag": "VP",
+    "logo": "/teams/Virtus.pro.png",
+    "regionId": 4,
+    "createdAt": "2024-03-12T12:37:29.281Z",
+    "updatedAt": "2024-03-12T12:37:29.281Z"
+  },
+  {
+    "id": 9303484,
+    "name": "Heroic",
+    "tag": "Heroic",
+    "logo": "/teams/Heroic.png",
+    "regionId": 2,
+    "createdAt": "2024-03-12T12:49:47.078Z",
+    "updatedAt": "2024-03-12T12:49:47.078Z"
+  },
+  {
+    "id": 39,
+    "name": "Shopify Rebellion",
+    "tag": "SR",
+    "logo": "/teams/Shopify_Rebellion.png",
+    "regionId": 1,
+    "createdAt": "2024-03-12T12:56:16.181Z",
+    "updatedAt": "2024-03-12T12:56:16.181Z"
+  },
+  {
+    "id": 7119388,
+    "name": "Team Spirit",
+    "tag": "TSpirit",
+    "logo": "/teams/Team_Spirit.png",
+    "regionId": 4,
+    "createdAt": "2024-03-12T13:03:36.741Z",
+    "updatedAt": "2024-03-12T13:03:36.741Z"
+  },
+  {
+    "id": 9255039,
+    "name": "1win",
+    "tag": "1win",
+    "logo": "/teams/1win.png",
+    "regionId": 4,
+    "createdAt": "2024-03-12T13:14:15.737Z",
+    "updatedAt": "2024-03-12T13:14:15.737Z"
+  },
+  {
+    "id": 5,
+    "name": "G2xiG",
+    "tag": "IG",
+    "logo": "/teams/G2_iG.png",
+    "regionId": 5,
+    "createdAt": "2024-03-12T04:27:44.153Z",
+    "updatedAt": "2024-03-12T04:27:44.153Z"
+  },
+  {
+    "id": 9255706,
+    "name": "Aurora",
+    "tag": "Aurora",
+    "logo": "/teams/Aurora.png",
+    "regionId": 6,
+    "createdAt": "2024-03-12T13:00:26.684Z",
+    "updatedAt": "2024-03-12T13:00:26.684Z"
+  }
+]

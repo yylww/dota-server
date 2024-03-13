@@ -6,10 +6,10 @@ export class PlayerEntity implements Player {
   id: number;
 
   @ApiProperty()
-  name: string;
+  status: number;
 
   @ApiProperty()
-  gameId: string;
+  nickname: string;
 
   @ApiProperty()
   position: string;

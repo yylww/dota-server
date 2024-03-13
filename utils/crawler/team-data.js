@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
-const axios = require('axios');
 const fs = require('fs');
 
 (async () => {
@@ -18,15 +17,31 @@ const fs = require('fs');
   const data = [];
   $('.lp-container-fluid').first().find('.team-template-team-standard').each((i, ele) => {
     const name = $(ele).find('.team-template-text').text();
-    const img = $(ele).find('.team-template-image-icon').find('img').attr('src');
+    let regionId = 0;
+    if (i < 6) {
+      regionId = 1
+    } else if (i < 15) {
+      regionId = 2
+    } else if (i < 23) {
+      regionId = 3
+    } else if (i < 36) {
+      regionId = 4
+    } else if (i < 43) {
+      regionId = 5
+    } else if (i < 53) {
+      regionId = 6
+    } else if (i < 57) {
+      regionId = 7
+    }
     data[i] = {
-      name: name.split(' ').join('_'),
-      logo: `https://liquipedia.net${img}`,
+      name,
+      logo: `/teams/${name.split(' ').join('_')}.png`,
+      regionId, 
       players: [],
     };
   });
   for (const item of data) {
-    await page.goto(`https://liquipedia.net/dota2/${item.name}`);
+    await page.goto(`https://liquipedia.net/dota2/${item.name.split(' ').join('_')}`);
 
     // Wait for SPA content to load (you may need to adjust this)
     await page.waitForSelector('.main-content');
@@ -37,10 +52,10 @@ const fs = require('fs');
     const $ = cheerio.load(html);
     const players = []
     $('.roster-card').first().find('.Player').each((i, ele) => {
-      const id = $(ele).find('.ID').find('a').text()
+      const nickname = $(ele).find('.ID').find('a').text()
       const name = $(ele).find('.Name').text().split('(')[1].split(')')[0]
       const position = $(ele).find('.Position').text().split('Position:')[1].trimStart()
-      players[i] = { id, name, position }
+      players[i] = { nickname, name, position }
     })
     item.players = players
   }
@@ -50,20 +65,3 @@ const fs = require('fs');
   })
   await browser.close();
 })()
-
-async function downloadImage(url, name) {
-  const imageName = `${name}.png`;
-  const response = await axios.get(url, { responseType: 'stream' });
-  const writer = fs.createWriteStream(`./statics/teams/${imageName}`);
-  response.data.pipe(writer);
-  return new Promise((resolve, reject) => {
-    writer.on('finish', () => {
-      resolve();
-      console.log(`${imageName} finished.`)
-    });
-    writer.on('error', (error) => {
-      reject();
-      console.log(`${imageName} error: ${error.message}`);
-    });
-  })
-}

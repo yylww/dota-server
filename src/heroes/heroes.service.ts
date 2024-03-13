@@ -25,7 +25,7 @@ export class HeroesService {
       OR: [
         { cname: { contains: query } },
         { name: { contains: query } },
-      ]
+      ],
     } : {}
     const list = await this.prisma.hero.findMany({ 
       where: {
@@ -33,14 +33,18 @@ export class HeroesService {
       },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
-    })
-    const total = await this.prisma.hero.count()
+    });
+    const total = await this.prisma.hero.count();
     return {
       list,
       current,
       pageSize,
       total
     }
+  }
+
+  findAll() {
+    return this.prisma.hero.findMany();
   }
 
   findOne(id: number) {
@@ -54,7 +58,7 @@ export class HeroesService {
     });
   }
 
-  remove(id: number) {
-    return this.prisma.hero.delete({ where: { id }});
-  }
+  // remove(id: number) {
+  //   return this.prisma.hero.delete({ where: { id }});
+  // }
 }

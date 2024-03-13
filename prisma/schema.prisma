@@ -12,6 +12,9 @@ model Hero {
   name      String   @unique
   cname     String   @unique
   avatar    String
+  records   Record[]
+  bans      Game[]   @relation(name: "bans")
+  picks     Game[]   @relation(name: "picks")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -26,25 +29,141 @@ model Region {
 }
 
 model Team {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  logo      String
-  region    Region   @relation(fields: [regionId], references: [id])
-  regionId  Int
-  players   Player[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  tag          String
+  logo         String
+  region       Region        @relation(fields: [regionId], references: [id])
+  regionId     Int
+  achievements Achievement[]
+  players      Player[]
+  tournament   Tournament[]
+  matches      Match[]
+  radiants     Game[]        @relation(name: "radiant")
+  dires        Game[]        @relation(name: "dire")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 }
 
 model Player {
-  id        Int      @id @default(autoincrement())
-  gameId    String
-  name      String
-  position  String
-  team      Team     @relation(fields: [teamId], references: [id])
-  teamId    Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int           @id @default(autoincrement())
+  nickname    String
+  position    String
+  status      Int // 状态 0:现役 1:活跃 2:退役
+  team        Team?         @relation(fields: [teamId], references: [id])
+  teamId      Int?
+  records     Record[]
+  achievement Achievement[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Tournament {
+  id          Int           @id @default(autoincrement())
+  title       String
+  description String
+  startDate   DateTime
+  endDate     DateTime
+  bonus       Int           @default(0)
+  result      Achievement[]
+  stages      Stage[]
+  matches     Match[]
+  games       Game[]
+  teams       Team[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Achievement {
+  id           Int        @id @default(autoincrement())
+  rank         String
+  bonus        Int
+  point        Int
+  players      Player[]
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  tournamentId Int
+  team         Team?      @relation(fields: [teamId], references: [id])
+  teamId       Int?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Stage {
+  id           Int        @id @default(autoincrement())
+  title        String
+  rule         String
+  startDate    DateTime
+  endDate      DateTime
+  groups       Json
+  type         Int // 比赛类型 0:小组循环赛 1:双败淘汰赛 2: 单败淘汰赛
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  tournamentId Int
+  matches      Match[]
+  games        Game[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Match {
+  id           Int        @id @default(autoincrement())
+  startTime    DateTime
+  bo           Int // BO数
+  type         Int // 比赛类型 0:线下赛 1:线上赛
+  extra        Boolean    @default(false)
+  tournament   Tournament @relation(fields: [tournamentId], references: [id])
+  tournamentId Int
+  stage        Stage      @relation(fields: [stageId], references: [id])
+  stageId      Int
+  teams        Team[]
+  games        Game[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Game {
+  id            Int        @id @default(autoincrement())
+  type          Int // 比赛类型 0:普通 1:solo
+  startTime     DateTime
+  duration      Int // 比赛耗时 单位：秒
+  radiant       Team       @relation(name: "radiant", fields: [radiantTeamId], references: [id])
+  radiantTeamId Int
+  dire          Team       @relation(name: "dire", fields: [direTeamId], references: [id])
+  direTeamId    Int
+  tournament    Tournament @relation(fields: [tournamentId], references: [id])
+  tournamentId  Int
+  stage         Stage      @relation(fields: [stageId], references: [id])
+  stageId       Int
+  match         Match      @relation(fields: [matchId], references: [id])
+  matchId       Int
+  records       Record[]
+  bans          Hero[]     @relation(name: "bans")
+  picks         Hero[]     @relation(name: "picks")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model Record {
+  id          Int     @id @default(autoincrement())
+  player      Player  @relation(fields: [playerId], references: [id])
+  playerId    Int
+  game        Game    @relation(fields: [gameId], references: [id])
+  gameId      Int
+  hero        Hero    @relation(fields: [heroId], references: [id])
+  heroId      Int
+  radiant     Boolean
+  win         Boolean
+  xpm         Int
+  gpm         Int
+  kills       Int
+  deaths      Int
+  assists     Int
+  level       Int
+  heroDamage  Int
+  towerDamage Int
+  lastHits    Int
+  denies      Int
+  netWorth    Int
+  healing     Int
 }
 
 model User {

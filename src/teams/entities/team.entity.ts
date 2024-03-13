@@ -12,6 +12,9 @@ export class TeamEntity implements Team {
   logo: string;
 
   @ApiProperty()
+  tag: string;
+
+  @ApiProperty()
   regionId: number;
 
   @ApiProperty()

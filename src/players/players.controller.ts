@@ -28,6 +28,12 @@ export class PlayersController {
     return this.playersService.findMany(+current, +pageSize, query);
   }
 
+  @Get('/all')
+  @ApiBearerAuth()
+  findAll() {
+    return this.playersService.findAll();
+  }
+
   @Get(':id')
   @ApiBearerAuth()
   findOne(@Param('id') id: string) {

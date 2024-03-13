@@ -28,6 +28,12 @@ export class RegionsController {
     return this.regionsService.findMany(+current, +pageSize, query);
   }
 
+  @Get('/all')
+  @ApiBearerAuth()
+  findAll() {
+    return this.regionsService.findAll();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.regionsService.findOne(+id);

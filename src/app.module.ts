@@ -12,6 +12,12 @@ import { TransformInterceptor } from './transform.interceptor';
 import { HttpExceptionFilter } from './http-exception.filter';
 import { TeamsModule } from './teams/teams.module';
 import { PlayersModule } from './players/players.module';
+import { TournamentsModule } from './tournaments/tournaments.module';
+import { StagesModule } from './stages/stages.module';
+import { MatchesModule } from './matches/matches.module';
+import { GamesModule } from './games/games.module';
+import { RecordsModule } from './records/records.module';
+import { AchievementsModule } from './achievements/achievements.module';
 
 @Module({
   imports: [
@@ -27,7 +33,7 @@ import { PlayersModule } from './players/players.module';
     HeroesModule, 
     RegionsModule, 
     TeamsModule, 
-    PlayersModule,
+    PlayersModule, TournamentsModule, StagesModule, MatchesModule, GamesModule, RecordsModule, AchievementsModule,
   ],
   controllers: [AppController],
   providers: [

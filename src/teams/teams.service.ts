@@ -28,6 +28,7 @@ export class TeamsService {
       include: {
         players: true,
         region: true,
+        matches: true,
       }
     })
     const total = await this.prisma.team.count()
@@ -37,6 +38,10 @@ export class TeamsService {
       pageSize,
       total
     }
+  }
+
+  findAll() {
+    return this.prisma.team.findMany();
   }
 
   findOne(id: number) {

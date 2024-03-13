@@ -14,12 +14,7 @@ export class PlayersService {
   async findMany(current?: number, pageSize?: number, query?: string) {
     const take = pageSize || 10;
     const skip = (current - 1) * take || 0;
-    const or = query ? {
-      OR: [
-        { name: { contains: query } },
-        { gameId: { contains: query } },
-      ]
-    } : {}
+    const or = query ? { nickname: { contains: query }}: {}
     const list = await this.prisma.player.findMany({ 
       where: {
         ...or,
@@ -37,6 +32,10 @@ export class PlayersService {
       pageSize,
       total
     }
+  }
+
+  findAll() {
+    return this.prisma.player.findMany();
   }
 
   findOne(id: number) {

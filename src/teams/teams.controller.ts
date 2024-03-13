@@ -30,6 +30,12 @@ export class TeamsController {
     return this.teamsService.findMany(+current, +pageSize, query);
   }
 
+  @Get('/all')
+  @ApiBearerAuth()
+  findAll() {
+    return this.teamsService.findAll();
+  }
+
   @Get(':id')
   @ApiBearerAuth()
   findOne(@Param('id') id: string) {

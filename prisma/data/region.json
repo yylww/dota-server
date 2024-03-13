@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "North America",
+    "cname": "北美",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  },
+  {
+    "id": 2,
+    "name": "South America",
+    "cname": "南美",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  },
+  {
+    "id": 3,
+    "name": "Europe",
+    "cname": "欧洲",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  },
+  {
+    "id": 4,
+    "name": "CIS",
+    "cname": "独联体",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  },
+  {
+    "id": 5,
+    "name": "China",
+    "cname": "中国",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  },
+  {
+    "id": 6,
+    "name": "Southeast Asia",
+    "cname": "东南亚",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  },
+  {
+    "id": 7,
+    "name": "MENA",
+    "cname": "中东及北非",
+    "createdAt": "2024-03-12T04:24:38.220Z",
+    "updatedAt": "2024-03-12T04:24:38.220Z"
+  }
+]

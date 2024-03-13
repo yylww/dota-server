@@ -10,6 +10,11 @@ export class CreateTeamDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
+  tag: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
   logo: string;
 
   @IsNumber()

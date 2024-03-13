@@ -39,6 +39,10 @@ export class RegionsService {
     }
   }
 
+  findAll() {
+    return this.prisma.region.findMany();
+  }
+
   findOne(id: number) {
     return this.prisma.region.findUnique({ where: { id }});
   }
