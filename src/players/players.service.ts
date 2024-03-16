@@ -23,6 +23,7 @@ export class PlayersService {
       skip: Number(skip) || 0,
       include: {
         team: true,
+        achievements: true,
       }
     })
     const total = await this.prisma.player.count()

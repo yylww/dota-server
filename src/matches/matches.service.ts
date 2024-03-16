@@ -79,7 +79,7 @@ export class MatchesService {
     });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.prisma.match.delete({ where: { id }});
   }
 }

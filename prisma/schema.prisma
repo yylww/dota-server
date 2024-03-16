@@ -33,6 +33,7 @@ model Team {
   name         String        @unique
   tag          String
   logo         String
+  status       Int           @default(0) // 0:活跃 1:不活跃 2:解散
   region       Region        @relation(fields: [regionId], references: [id])
   regionId     Int
   achievements Achievement[]
@@ -46,16 +47,16 @@ model Team {
 }
 
 model Player {
-  id          Int           @id @default(autoincrement())
-  nickname    String
-  position    String
-  status      Int // 状态 0:现役 1:活跃 2:退役
-  team        Team?         @relation(fields: [teamId], references: [id])
-  teamId      Int?
-  records     Record[]
-  achievement Achievement[]
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
+  id           Int           @id @default(autoincrement())
+  nickname     String
+  position     String
+  status       Int // 状态 0:现役 1:活跃 2:退役
+  team         Team?         @relation(fields: [teamId], references: [id])
+  teamId       Int?
+  records      Record[]
+  achievements Achievement[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 }
 
 model Tournament {
@@ -82,8 +83,7 @@ model Achievement {
   players      Player[]
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
   tournamentId Int
-  team         Team?      @relation(fields: [teamId], references: [id])
-  teamId       Int?
+  teams        Team[]
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }
@@ -95,7 +95,9 @@ model Stage {
   startDate    DateTime
   endDate      DateTime
   groups       Json
-  type         Int // 比赛类型 0:小组循环赛 1:双败淘汰赛 2: 单败淘汰赛
+  mode         Int // 比赛类型 0:小组循环赛 1:双败淘汰赛 2: 单败淘汰赛
+  bo           Int?
+  type         Int?
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
   tournamentId Int
   matches      Match[]

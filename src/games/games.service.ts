@@ -11,6 +11,9 @@ export class GamesService {
     return this.prisma.game.create({ 
       data: {
         ...createGameDto,
+        records: {
+          create: createGameDto.records,
+        },
         bans: {
           connect: createGameDto.bans.map(id => ({ id }))
         },
@@ -42,6 +45,8 @@ export class GamesService {
         tournament: true,
         stage: true,
         match: true,
+        radiant: true,
+        dire: true,
         records: true,
         bans: true,
         picks: true,
@@ -69,6 +74,9 @@ export class GamesService {
       where: { id },
       data: {
         ...updateGameDto,
+        // records: {
+        //   connect: updateGameDto.records,
+        // },
         bans: {
           set: updateGameDto.bans.map(id => ({ id }))
         },
@@ -79,7 +87,27 @@ export class GamesService {
     });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
+    await this.prisma.game.update({
+      where: { id },
+      data: {
+        records: {
+          deleteMany: {},
+        },
+      },
+    })
     return this.prisma.game.delete({ where: { id }});
   }
+
+  // async removeMany(matchId: number) {
+  //   await this.prisma.game.update({
+  //     where: { id },
+  //     data: {
+  //       records: {
+  //         deleteMany: {},
+  //       },
+  //     },
+  //   })
+  //   return this.prisma.game.delete({ where: { id }});
+  // }
 }

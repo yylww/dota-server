@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateTournamentDto {
   @IsString()
@@ -17,11 +17,6 @@ export class CreateTournamentDto {
   @ApiProperty()
   bonus: number;
 
-  @IsArray()
-  @IsNotEmpty()
-  @ApiProperty()
-  result: object;
-
   @IsDateString()
   @IsNotEmpty()
   @ApiProperty()
@@ -31,4 +26,9 @@ export class CreateTournamentDto {
   @IsNotEmpty()
   @ApiProperty()
   endDate: string;
+
+  @IsArray()
+  @IsNotEmpty()
+  @ApiProperty()
+  teams: number[];
 }

@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateStageDto {
   @IsString()
@@ -19,6 +19,16 @@ export class CreateStageDto {
 
   @IsNumber()
   @IsNotEmpty()
+  @ApiProperty()
+  mode: number;
+
+  @IsNumber()
+  @IsOptional()
+  @ApiProperty()
+  bo: number;
+
+  @IsNumber()
+  @IsOptional()
   @ApiProperty()
   type: number;
 

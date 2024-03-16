@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateAchievementDto {
   @IsString()
@@ -27,8 +27,8 @@ export class CreateAchievementDto {
   @ApiProperty()
   tournamentId: number;
 
-  @IsNumber()
-  @IsNotEmpty()
+  @IsArray()
+  @IsOptional()
   @ApiProperty()
-  teamId?: number;
+  teams: number[];
 }

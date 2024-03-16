@@ -41,7 +41,11 @@ export class TeamsService {
   }
 
   findAll() {
-    return this.prisma.team.findMany();
+    return this.prisma.team.findMany({
+      include: {
+        players: true,
+      }
+    });
   }
 
   findOne(id: number) {

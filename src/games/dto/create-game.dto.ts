@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsObject, IsString } from "class-validator";
+import { Record } from "@prisma/client";
+import { IsArray, IsDateString, IsNotEmpty, IsNumber, IsOptional } from "class-validator";
 
 export class CreateGameDto {
   @IsNumber()
@@ -51,4 +52,9 @@ export class CreateGameDto {
   @IsNotEmpty()
   @ApiProperty()
   picks: number[];
+
+  @IsArray()
+  @IsOptional()
+  @ApiProperty()
+  records: Record[];
 }

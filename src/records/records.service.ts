@@ -19,7 +19,12 @@ export class RecordsService {
       skip: Number(skip) || 0,
       include: {
         player: true,
-        game: true,
+        game: {
+          include: {
+            radiant: true,
+            dire: true,
+          },
+        },
         hero: true,
       }
     })
@@ -47,7 +52,7 @@ export class RecordsService {
     });
   }
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} record`;
-  // }
+  remove(id: number) {
+    return this.prisma.record.delete({ where: { id }});
+  }
 }

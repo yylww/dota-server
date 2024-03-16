@@ -46,9 +46,9 @@ export class RecordsController {
     return this.recordsService.update(+id, updateRecordDto);
   }
 
-  // @Delete(':id')
-  // @ApiBearerAuth()
-  // remove(@Param('id') id: string) {
-  //   return this.recordsService.remove(+id);
-  // }
+  @Delete(':id')
+  @ApiBearerAuth()
+  remove(@Param('id') id: string) {
+    return this.recordsService.remove(+id);
+  }
 }

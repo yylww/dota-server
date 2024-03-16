@@ -13,6 +13,9 @@ export class AchievementsService {
         ...createAchievementDto, 
         players: {
           connect: createAchievementDto.players.map(id => ({ id }))
+        },
+        teams: {
+          connect: createAchievementDto.teams.map(id => ({ id }))
         }
       },
     });
@@ -26,7 +29,7 @@ export class AchievementsService {
       skip: Number(skip) || 0,
       include: {
         players: true,
-        team: true,
+        teams: true,
         tournament: true,
       }
     })
@@ -54,6 +57,9 @@ export class AchievementsService {
         ...updateAchievementDto,
         players: {
           set: updateAchievementDto.players.map(id => ({ id })),
+        },
+        teams: {
+          set: updateAchievementDto.teams.map(id => ({ id }))
         }
       }
     });

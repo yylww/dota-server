@@ -1,7 +1,12 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class CreateHeroDto {
+  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty()
+  id: number;
+
   @IsString()
   @IsNotEmpty()
   @ApiProperty()

@@ -33,6 +33,11 @@ export class HeroesService {
       },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
+      include: {
+        bans: true,
+        picks: true,
+        records: true,
+      }
     });
     const total = await this.prisma.hero.count();
     return {
