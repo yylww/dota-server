@@ -72,9 +72,7 @@ export class MatchesService {
       where: { id },
       data: {
         ...updateMatchDto,
-        teams: {
-          set: updateMatchDto.teams.map(id => ({ id })),
-        },
+        teams: updateMatchDto.teams ? { set: updateMatchDto.teams.map(id => ({ id }))} : undefined,
       },
     });
   }
