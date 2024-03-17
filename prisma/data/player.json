@@ -216,15 +216,6 @@
     "updatedAt": "2024-03-12T04:51:25.639Z"
   },
   {
-    "id": 10366616,
-    "nickname": "Sneyking",
-    "position": "5",
-    "status": 0,
-    "teamId": 9247354,
-    "createdAt": "2024-03-12T04:51:25.641Z",
-    "updatedAt": "2024-03-12T04:51:25.641Z"
-  },
-  {
     "id": 124801257,
     "nickname": "Nightfall",
     "position": "1",
@@ -484,15 +475,6 @@
     "teamId": 8291895,
     "createdAt": "2024-03-12T11:38:09.421Z",
     "updatedAt": "2024-03-12T11:38:09.421Z"
-  },
-  {
-    "id": 34505203,
-    "nickname": "mc",
-    "position": "3",
-    "status": 1,
-    "teamId": 8291895,
-    "createdAt": "2024-03-12T11:22:25.843Z",
-    "updatedAt": "2024-03-12T11:46:25.388Z"
   },
   {
     "id": 172099728,
@@ -772,5 +754,23 @@
     "teamId": 9255039,
     "createdAt": "2024-03-12T13:14:15.785Z",
     "updatedAt": "2024-03-12T13:14:15.785Z"
+  },
+  {
+    "id": 10366616,
+    "nickname": "Sneyking",
+    "position": "5",
+    "status": 0,
+    "teamId": 9247354,
+    "createdAt": "2024-03-12T04:51:25.641Z",
+    "updatedAt": "2024-03-14T06:49:53.202Z"
+  },
+  {
+    "id": 34505203,
+    "nickname": "mc",
+    "position": "3",
+    "status": 1,
+    "teamId": null,
+    "createdAt": "2024-03-12T11:22:25.843Z",
+    "updatedAt": "2024-03-15T01:55:39.818Z"
   }
 ]

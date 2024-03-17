@@ -27,18 +27,7 @@ export class GamesService {
   async findMany(current?: number, pageSize?: number, query?: string) {
     const take = pageSize || 10;
     const skip = (current - 1) * take || 0;
-    // const or = query ? {
-    //   OR: [
-    //     { teams: { contains: query } },
-    //     { name: { contains: query } },
-    //   ],
-    // } : {}
     const list = await this.prisma.game.findMany({ 
-      // where: {
-      //   teams: {
-      //     name: query,
-      //   },
-      // },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
       include: {
@@ -65,11 +54,11 @@ export class GamesService {
     return this.prisma.game.findMany();
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.prisma.game.findUnique({ where: { id }});
   }
 
-  update(id: number, updateGameDto: UpdateGameDto) {
+  update(id: string, updateGameDto: UpdateGameDto) {
     return this.prisma.game.update({ 
       where: { id },
       data: {
@@ -87,7 +76,7 @@ export class GamesService {
     });
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     await this.prisma.game.update({
       where: { id },
       data: {
@@ -98,16 +87,4 @@ export class GamesService {
     })
     return this.prisma.game.delete({ where: { id }});
   }
-
-  // async removeMany(matchId: number) {
-  //   await this.prisma.game.update({
-  //     where: { id },
-  //     data: {
-  //       records: {
-  //         deleteMany: {},
-  //       },
-  //     },
-  //   })
-  //   return this.prisma.game.delete({ where: { id }});
-  // }
 }

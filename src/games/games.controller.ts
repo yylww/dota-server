@@ -10,11 +10,13 @@ export class GamesController {
   constructor(private readonly gamesService: GamesService) {}
 
   @Post()
+  @ApiBearerAuth()
   create(@Body() createGameDto: CreateGameDto) {
     return this.gamesService.create(createGameDto);
   }
 
   @Get()
+  @ApiBearerAuth()
   @ApiQuery({ name: 'query', required: false, type: String })
   @ApiQuery({ name: 'current', required: false, type: String })
   @ApiQuery({ name: 'pageSize', required: false, type: String })
@@ -34,17 +36,20 @@ export class GamesController {
   }
 
   @Get(':id')
+  @ApiBearerAuth()
   findOne(@Param('id') id: string) {
-    return this.gamesService.findOne(+id);
+    return this.gamesService.findOne(id);
   }
 
   @Patch(':id')
+  @ApiBearerAuth()
   update(@Param('id') id: string, @Body() updateGameDto: UpdateGameDto) {
-    return this.gamesService.update(+id, updateGameDto);
+    return this.gamesService.update(id, updateGameDto);
   }
 
   @Delete(':id')
+  @ApiBearerAuth()
   remove(@Param('id') id: string) {
-    return this.gamesService.remove(+id);
+    return this.gamesService.remove(id);
   }
 }

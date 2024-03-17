@@ -21,30 +21,61 @@ export class MatchesService {
   async findMany(current?: number, pageSize?: number, query?: string) {
     const take = pageSize || 10;
     const skip = (current - 1) * take || 0;
-    // const or = query ? {
-    //   OR: [
-    //     { teams: { contains: query } },
-    //     { name: { contains: query } },
-    //   ],
-    // } : {}
     const list = await this.prisma.match.findMany({ 
-      // where: {
-      //   teams: {
-      //     name: query,
-      //   },
-      // },
+      where: {
+        teams: {
+          some: {
+            tag: {
+              contains: query || undefined,
+              mode: 'insensitive',
+            },
+          }
+        },
+      },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
+      orderBy: [
+        { startTime: 'desc' },
+      ],
       include: {
         tournament: true,
         stage: true,
         teams: true,
-        games: true,
+        games: {
+          include: {
+            records: true,
+          },
+        },
       }
     })
     const total = await this.prisma.match.count()
     return {
-      list,
+      list: list.map(match => {
+        const { games, teams } = match
+        const arr = [0, 0]
+        if (games && games.length > 0) {
+          games.map(game => {
+            const radiant = game.records.filter(record => record.radiant)
+            if (teams[0].id === game.radiantTeamId) {
+              if (radiant[0].win) {
+                arr[0] += 1
+              } else {
+                arr[1] += 1
+              }
+            } else {
+              if (!radiant[0].win) {
+                arr[0] += 1
+              } else {
+                arr[1] += 1
+              }
+            }
+          }) 
+        }
+        return {
+          ...match,
+          score: arr.join(':'),
+        }
+      }),
       current,
       pageSize,
       total

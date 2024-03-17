@@ -27,6 +27,7 @@ CREATE TABLE "Team" (
     "name" TEXT NOT NULL,
     "tag" TEXT NOT NULL,
     "logo" TEXT NOT NULL,
+    "status" INTEGER NOT NULL DEFAULT 0,
     "regionId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -64,11 +65,10 @@ CREATE TABLE "Tournament" (
 -- CreateTable
 CREATE TABLE "Achievement" (
     "id" SERIAL NOT NULL,
-    "rank" INTEGER NOT NULL,
+    "rank" TEXT NOT NULL,
     "bonus" INTEGER NOT NULL,
     "point" INTEGER NOT NULL,
     "tournamentId" INTEGER NOT NULL,
-    "teamId" INTEGER,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -83,7 +83,9 @@ CREATE TABLE "Stage" (
     "startDate" TIMESTAMP(3) NOT NULL,
     "endDate" TIMESTAMP(3) NOT NULL,
     "groups" JSONB NOT NULL,
-    "type" INTEGER NOT NULL,
+    "mode" INTEGER NOT NULL,
+    "bo" INTEGER,
+    "type" INTEGER,
     "tournamentId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -108,7 +110,7 @@ CREATE TABLE "Match" (
 
 -- CreateTable
 CREATE TABLE "Game" (
-    "id" SERIAL NOT NULL,
+    "id" BIGSERIAL NOT NULL,
     "type" INTEGER NOT NULL,
     "startTime" TIMESTAMP(3) NOT NULL,
     "duration" INTEGER NOT NULL,
@@ -127,7 +129,7 @@ CREATE TABLE "Game" (
 CREATE TABLE "Record" (
     "id" SERIAL NOT NULL,
     "playerId" INTEGER NOT NULL,
-    "gameId" INTEGER NOT NULL,
+    "gameId" BIGINT NOT NULL,
     "heroId" INTEGER NOT NULL,
     "radiant" BOOLEAN NOT NULL,
     "win" BOOLEAN NOT NULL,
@@ -172,6 +174,12 @@ CREATE TABLE "_AchievementToPlayer" (
 );
 
 -- CreateTable
+CREATE TABLE "_AchievementToTeam" (
+    "A" INTEGER NOT NULL,
+    "B" INTEGER NOT NULL
+);
+
+-- CreateTable
 CREATE TABLE "_MatchToTeam" (
     "A" INTEGER NOT NULL,
     "B" INTEGER NOT NULL
@@ -179,13 +187,13 @@ CREATE TABLE "_MatchToTeam" (
 
 -- CreateTable
 CREATE TABLE "_bans" (
-    "A" INTEGER NOT NULL,
+    "A" BIGINT NOT NULL,
     "B" INTEGER NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "_picks" (
-    "A" INTEGER NOT NULL,
+    "A" BIGINT NOT NULL,
     "B" INTEGER NOT NULL
 );
 
@@ -220,6 +228,12 @@ CREATE UNIQUE INDEX "_AchievementToPlayer_AB_unique" ON "_AchievementToPlayer"("
 CREATE INDEX "_AchievementToPlayer_B_index" ON "_AchievementToPlayer"("B");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "_AchievementToTeam_AB_unique" ON "_AchievementToTeam"("A", "B");
+
+-- CreateIndex
+CREATE INDEX "_AchievementToTeam_B_index" ON "_AchievementToTeam"("B");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "_MatchToTeam_AB_unique" ON "_MatchToTeam"("A", "B");
 
 -- CreateIndex
@@ -245,9 +259,6 @@ ALTER TABLE "Player" ADD CONSTRAINT "Player_teamId_fkey" FOREIGN KEY ("teamId") 
 
 -- AddForeignKey
 ALTER TABLE "Achievement" ADD CONSTRAINT "Achievement_tournamentId_fkey" FOREIGN KEY ("tournamentId") REFERENCES "Tournament"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Achievement" ADD CONSTRAINT "Achievement_teamId_fkey" FOREIGN KEY ("teamId") REFERENCES "Team"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Stage" ADD CONSTRAINT "Stage_tournamentId_fkey" FOREIGN KEY ("tournamentId") REFERENCES "Tournament"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -293,6 +304,12 @@ ALTER TABLE "_AchievementToPlayer" ADD CONSTRAINT "_AchievementToPlayer_A_fkey" 
 
 -- AddForeignKey
 ALTER TABLE "_AchievementToPlayer" ADD CONSTRAINT "_AchievementToPlayer_B_fkey" FOREIGN KEY ("B") REFERENCES "Player"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "_AchievementToTeam" ADD CONSTRAINT "_AchievementToTeam_A_fkey" FOREIGN KEY ("A") REFERENCES "Achievement"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "_AchievementToTeam" ADD CONSTRAINT "_AchievementToTeam_B_fkey" FOREIGN KEY ("B") REFERENCES "Team"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_MatchToTeam" ADD CONSTRAINT "_MatchToTeam_A_fkey" FOREIGN KEY ("A") REFERENCES "Match"("id") ON DELETE CASCADE ON UPDATE CASCADE;

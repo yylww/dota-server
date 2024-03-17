@@ -10,22 +10,14 @@ const prisma = new PrismaClient();
 
 async function main() {
 
-  // const data = require('./data/player.json')
+  // const data = require('./data/players.json')
   // await prisma.player.createMany({ data }) 
 
-  // const des = path.join(__dirname, '/data')
-  // const data = await prisma.tournament.findMany({
-  //   where: {
-  //     result: {
-  //       array_contains: ['Team']
-  //     }
-  //   }
-  // })
-  // console.log(data);
-  
-  // fs.writeFile(`${des}/match.json`, JSON.stringify(data), () => {
-  //   console.log('success')
-  // })
+  const des = path.join(__dirname, '/data')
+  const data = await prisma.player.findMany({ include: { records: true }})
+  fs.writeFile(`${des}/player_records.json`, JSON.stringify(data), () => {
+    console.log('success')
+  })
   
   
   // create team and player
@@ -56,18 +48,18 @@ async function main() {
   //   })
   // }
 
-  // const passwordKvo = await bcrypy.hash('123456', roundsOfHashing);
-  // await prisma.user.upsert({
-  //   where: { email: 'kvo@qq.com' },
-  //   update: {
-  //     password: passwordKvo,
-  //   },
-  //   create: {
-  //     email: 'kvo@qq.com',
-  //     name: 'Kvo',
-  //     password: passwordKvo,
-  //   },
-  // });
+  const passwordKvo = await bcrypy.hash('123456', roundsOfHashing);
+  await prisma.user.upsert({
+    where: { email: 'kvo@qq.com' },
+    update: {
+      password: passwordKvo,
+    },
+    create: {
+      email: 'kvo@qq.com',
+      name: 'Kvo',
+      password: passwordKvo,
+    },
+  });
 
   // const { data } = await axios.get('https://www.dota2.com/datafeed/herolist?language=schinese')
   // const heroesData = data.result.data.heroes.map(item => ({

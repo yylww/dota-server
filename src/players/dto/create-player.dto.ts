@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreatePlayerDto {
   @IsNumber()
@@ -23,7 +23,7 @@ export class CreatePlayerDto {
   status: number;
 
   @IsNumber()
-  @IsNotEmpty()
+  @IsOptional()
   @ApiProperty()
   teamId: number;
 }

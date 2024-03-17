@@ -7,10 +7,10 @@ export class CreateRecordDto {
   @ApiProperty()
   playerId: number;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  gameId: number;
+  gameId: string;
 
   @IsNumber()
   @IsNotEmpty()
