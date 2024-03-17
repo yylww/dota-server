@@ -17,16 +17,18 @@ export class GamesController {
 
   @Get()
   @ApiBearerAuth()
-  @ApiQuery({ name: 'query', required: false, type: String })
   @ApiQuery({ name: 'current', required: false, type: String })
   @ApiQuery({ name: 'pageSize', required: false, type: String })
+  @ApiQuery({ name: 'query', required: false, type: String })
+  @ApiQuery({ name: 'matchId', required: false, type: String })
   @ApiBearerAuth()
   findMany(
     @Query('pageSize') pageSize?: string,
     @Query('current') current?: string,
     @Query('query') query?: string,
+    @Query('matchId') matchId?: string,
   ) {
-    return this.gamesService.findMany(+current, +pageSize, query);
+    return this.gamesService.findMany(+current, +pageSize, query, +matchId);
   }
 
   @Get('/all')

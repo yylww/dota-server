@@ -2,13 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { CreateGameDto } from './dto/create-game.dto';
 import { UpdateGameDto } from './dto/update-game.dto';
 import { PrismaService } from 'nestjs-prisma';
+import { MatchesService } from 'src/matches/matches.service';
 
 @Injectable()
 export class GamesService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private matchesService: MatchesService,
+  ) {}
   
-  create(createGameDto: CreateGameDto) {
-    return this.prisma.game.create({ 
+  async create(createGameDto: CreateGameDto) {
+    // 创建game后更新match score
+    const game = await this.prisma.game.create({ 
       data: {
         ...createGameDto,
         records: {
@@ -21,15 +26,24 @@ export class GamesService {
           connect: createGameDto.picks.map(id => ({ id }))
         },
       }, 
-    });
+    })
+    await this.matchesService.updateScore(createGameDto.matchId)
+    return game
   }
 
-  async findMany(current?: number, pageSize?: number, query?: string) {
+  async findMany(current?: number, pageSize?: number, query?: string, matchId?: number) {
+    console.log(matchId)
     const take = pageSize || 10;
     const skip = (current - 1) * take || 0;
     const list = await this.prisma.game.findMany({ 
+      where: {
+        matchId: matchId || undefined,
+      },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
+      orderBy: [
+        { startTime: 'desc' },
+      ],
       include: {
         tournament: true,
         stage: true,
@@ -63,9 +77,6 @@ export class GamesService {
       where: { id },
       data: {
         ...updateGameDto,
-        // records: {
-        //   connect: updateGameDto.records,
-        // },
         bans: {
           set: updateGameDto.bans.map(id => ({ id }))
         },
@@ -77,6 +88,7 @@ export class GamesService {
   }
 
   async remove(id: string) {
+    // 删除game时，先删除相关records
     await this.prisma.game.update({
       where: { id },
       data: {
@@ -85,6 +97,9 @@ export class GamesService {
         },
       },
     })
-    return this.prisma.game.delete({ where: { id }});
+    // 删除game后，更新match score
+    const game = await this.prisma.game.delete({ where: { id }})
+    await this.matchesService.updateScore(game.matchId)
+    return game
   }
 }

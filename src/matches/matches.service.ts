@@ -50,32 +50,7 @@ export class MatchesService {
     })
     const total = await this.prisma.match.count()
     return {
-      list: list.map(match => {
-        const { games, teams } = match
-        const arr = [0, 0]
-        if (games && games.length > 0) {
-          games.map(game => {
-            const radiant = game.records.filter(record => record.radiant)
-            if (teams[0].id === game.radiantTeamId) {
-              if (radiant[0].win) {
-                arr[0] += 1
-              } else {
-                arr[1] += 1
-              }
-            } else {
-              if (!radiant[0].win) {
-                arr[0] += 1
-              } else {
-                arr[1] += 1
-              }
-            }
-          }) 
-        }
-        return {
-          ...match,
-          score: arr.join(':'),
-        }
-      }),
+      list,
       current,
       pageSize,
       total
@@ -93,7 +68,11 @@ export class MatchesService {
         tournament: true,
         stage: true,
         teams: true,
-        games: true,
+        games: {
+          include: {
+            records: true,
+          }
+        },
       }
     });
   }
@@ -106,6 +85,36 @@ export class MatchesService {
         teams: updateMatchDto.teams ? { set: updateMatchDto.teams.map(id => ({ id }))} : undefined,
       },
     });
+  }
+
+  async updateScore(id: number) {
+    const match = await this.findOne(id)
+    const { games, teams } = match
+    const arr = [0, 0]
+    if (games && games.length > 0) {
+      games.map(game => {
+        const radiant = game.records.filter(record => record.radiant)
+        if (teams[0].id === game.radiantTeamId) {
+          if (radiant[0].win) {
+            arr[0] += 1
+          } else {
+            arr[1] += 1
+          }
+        } else {
+          if (!radiant[0].win) {
+            arr[0] += 1
+          } else {
+            arr[1] += 1
+          }
+        }
+      }) 
+    }
+    await this.prisma.match.update({
+      where: { id },
+      data: {
+        score: arr.join(':'),
+      }
+    })
   }
 
   async remove(id: number) {

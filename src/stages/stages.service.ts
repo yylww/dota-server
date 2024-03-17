@@ -43,7 +43,15 @@ export class StagesService {
   findOne(id: number) {
     return this.prisma.stage.findUnique({ 
       where: { id }, 
-      include: { tournament: true },
+      include: { 
+        tournament: true,
+        matches: {
+          include: {
+            games: true,
+            teams: true,
+          }
+        },
+      },
     });
   }
 

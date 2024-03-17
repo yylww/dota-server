@@ -15,9 +15,9 @@ export class MatchesController {
   }
 
   @Get()
-  @ApiQuery({ name: 'query', required: false, type: String })
   @ApiQuery({ name: 'current', required: false, type: String })
   @ApiQuery({ name: 'pageSize', required: false, type: String })
+  @ApiQuery({ name: 'query', required: false, type: String })
   @ApiBearerAuth()
   findMany(
     @Query('pageSize') pageSize?: string,
