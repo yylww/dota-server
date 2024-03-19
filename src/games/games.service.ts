@@ -2,17 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { CreateGameDto } from './dto/create-game.dto';
 import { UpdateGameDto } from './dto/update-game.dto';
 import { PrismaService } from 'nestjs-prisma';
-import { MatchesService } from 'src/matches/matches.service';
 
 @Injectable()
 export class GamesService {
   constructor(
     private prisma: PrismaService,
-    private matchesService: MatchesService,
   ) {}
   
   async create(createGameDto: CreateGameDto) {
-    // 创建game后更新match score
     const game = await this.prisma.game.create({ 
       data: {
         ...createGameDto,
@@ -27,7 +24,6 @@ export class GamesService {
         },
       }, 
     })
-    await this.matchesService.updateScore(createGameDto.matchId)
     return game
   }
 
@@ -97,9 +93,6 @@ export class GamesService {
         },
       },
     })
-    // 删除game后，更新match score
-    const game = await this.prisma.game.delete({ where: { id }})
-    await this.matchesService.updateScore(game.matchId)
-    return game
+    return this.prisma.game.delete({ where: { id }})
   }
 }

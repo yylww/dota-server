@@ -5,7 +5,9 @@ import { PrismaService } from 'nestjs-prisma';
 
 @Injectable()
 export class StagesService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+  ) {}
 
   create(createStageDto: CreateStageDto) {
     return this.prisma.stage.create({ data: createStageDto });
@@ -40,19 +42,23 @@ export class StagesService {
     return this.prisma.stage.findMany();
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.prisma.stage.findUnique({ 
       where: { id }, 
       include: { 
         tournament: true,
         matches: {
           include: {
-            games: true,
+            games: {
+              include: {
+                records: true,
+              },
+            },
             teams: true,
           }
         },
       },
-    });
+    })
   }
 
   update(id: number, updateStageDto: UpdateStageDto) {

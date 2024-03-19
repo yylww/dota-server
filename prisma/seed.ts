@@ -10,50 +10,6 @@ const prisma = new PrismaClient();
 
 async function main() {
 
-  // update match score
-  const data = await prisma.match.findMany({ 
-    include: { 
-      games: {
-        include: {
-          records: true,
-        }
-      },
-      teams: true,
-    }
-  })
-  for (const match of data) {
-    const games = match.games
-    const teams = match.teams
-    const arr = [0, 0]
-    if (games && games.length > 0) {
-      games.map(game => {
-        const radiant = game.records.filter(record => record.radiant)
-        if (teams[0].id === game.radiantTeamId) {
-          if (radiant[0].win) {
-            arr[0] += 1
-          } else {
-            arr[1] += 1
-          }
-        } else {
-          if (!radiant[0].win) {
-            arr[0] += 1
-          } else {
-            arr[1] += 1
-          }
-        }
-      }) 
-    }
-    
-    await prisma.match.update({
-      where: {
-        id: match.id,
-      },
-      data: {
-        score: arr.join(':'),
-      }
-    })
-  }
-
   // const data = require('./data/players.json')
   // await prisma.player.createMany({ data }) 
 

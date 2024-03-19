@@ -112,7 +112,6 @@ model Match {
   bo           Int // BO数
   type         Int // 比赛类型 0:线下赛 1:线上赛
   extra        Boolean    @default(false)
-  score        String     @default("0:0")
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
   tournamentId Int
   stage        Stage      @relation(fields: [stageId], references: [id])
