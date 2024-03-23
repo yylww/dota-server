@@ -111,6 +111,7 @@ model Match {
   startTime    DateTime
   bo           Int // BO数
   type         Int // 比赛类型 0:线下赛 1:线上赛
+  group        Int        @default(0) // 区分胜者组败者组总决赛和其他， 默认为0，0:其他 1:胜者组 2:败者组 3:总决赛
   extra        Boolean    @default(false)
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
   tournamentId Int
@@ -149,7 +150,7 @@ model Record {
   player      Player  @relation(fields: [playerId], references: [id])
   playerId    Int
   game        Game    @relation(fields: [gameId], references: [id])
-  gameId      String  
+  gameId      String
   hero        Hero    @relation(fields: [heroId], references: [id])
   heroId      Int
   radiant     Boolean

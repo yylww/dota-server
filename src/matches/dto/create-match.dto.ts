@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsArray, IsBoolean, IsDateString, IsNotEmpty, IsNumber } from "class-validator";
+import { IsArray, IsBoolean, IsDateString, IsNotEmpty, IsNumber, IsOptional } from "class-validator";
 
 export class CreateMatchDto {
   @IsDateString()
@@ -16,6 +16,11 @@ export class CreateMatchDto {
   @IsNotEmpty()
   @ApiProperty()
   type: number;
+
+  @IsNumber()
+  @IsOptional()
+  @ApiProperty()
+  group: number;
 
   @IsBoolean()
   @IsNotEmpty()
