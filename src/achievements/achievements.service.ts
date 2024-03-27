@@ -16,7 +16,7 @@ export class AchievementsService {
         },
         teams: {
           connect: createAchievementDto.teams.map(id => ({ id }))
-        }
+        },
       },
     });
   }

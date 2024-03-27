@@ -25,6 +25,9 @@ export class TeamsService {
       },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
+      orderBy: [
+        { updatedAt: 'desc' },
+      ],
       include: {
         players: true,
         region: true,

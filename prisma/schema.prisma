@@ -13,8 +13,8 @@ model Hero {
   cname     String   @unique
   avatar    String
   records   Record[]
-  bans      Game[]   @relation(name: "bans")
-  picks     Game[]   @relation(name: "picks")
+  bans      Ban[]
+  picks     Pick[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -79,7 +79,7 @@ model Achievement {
   id           Int        @id @default(autoincrement())
   rank         String
   bonus        Int
-  point        Int
+  point        Int?
   players      Player[]
   tournament   Tournament @relation(fields: [tournamentId], references: [id])
   tournamentId Int
@@ -139,19 +139,43 @@ model Game {
   match         Match      @relation(fields: [matchId], references: [id])
   matchId       Int
   records       Record[]
-  bans          Hero[]     @relation(name: "bans")
-  picks         Hero[]     @relation(name: "picks")
+  bans          Ban[]
+  picks         Pick[]
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
 }
 
+model Ban {
+  id        Int      @id @default(autoincrement())
+  game      Game     @relation(fields: [gameId], references: [id])
+  gameId    String
+  hero      Hero     @relation(fields: [heroId], references: [id])
+  heroId    Int
+  order     Int
+  radiant   Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Pick {
+  id        Int      @id @default(autoincrement())
+  game      Game     @relation(fields: [gameId], references: [id])
+  gameId    String
+  hero      Hero     @relation(fields: [heroId], references: [id])
+  heroId    Int
+  order     Int
+  radiant   Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Record {
-  id          Int     @id @default(autoincrement())
-  player      Player  @relation(fields: [playerId], references: [id])
+  id          Int      @id @default(autoincrement())
+  player      Player   @relation(fields: [playerId], references: [id])
   playerId    Int
-  game        Game    @relation(fields: [gameId], references: [id])
+  game        Game     @relation(fields: [gameId], references: [id])
   gameId      String
-  hero        Hero    @relation(fields: [heroId], references: [id])
+  hero        Hero     @relation(fields: [heroId], references: [id])
   heroId      Int
   radiant     Boolean
   win         Boolean
@@ -167,6 +191,8 @@ model Record {
   denies      Int
   netWorth    Int
   healing     Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model User {

@@ -21,6 +21,9 @@ export class PlayersService {
       },
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
+      orderBy: [
+        { updatedAt: 'desc' },
+      ],
       include: {
         team: true,
         achievements: true,

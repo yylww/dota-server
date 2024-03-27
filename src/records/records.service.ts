@@ -17,6 +17,9 @@ export class RecordsService {
     const list = await this.prisma.record.findMany({ 
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
+      orderBy: [
+        { updatedAt: 'desc' },
+      ],
       include: {
         player: true,
         game: {

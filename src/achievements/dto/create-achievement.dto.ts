@@ -13,7 +13,7 @@ export class CreateAchievementDto {
   bonus: number;
 
   @IsNumber()
-  @IsNotEmpty()
+  @IsOptional()
   @ApiProperty()
   point: number;
 

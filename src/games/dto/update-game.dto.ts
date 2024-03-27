@@ -48,15 +48,15 @@ export class UpdateGameDto {
   @ApiProperty()
   matchId: number;
 
-  @IsArray()
-  @IsNotEmpty()
-  @ApiProperty()
-  bans: number[];
+  // @IsArray()
+  // @IsNotEmpty()
+  // @ApiProperty()
+  // bans: number[];
 
-  @IsArray()
-  @IsNotEmpty()
-  @ApiProperty()
-  picks: number[];
+  // @IsArray()
+  // @IsNotEmpty()
+  // @ApiProperty()
+  // picks: number[];
 
   // @IsArray()
   // @IsOptional()

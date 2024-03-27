@@ -5,13 +5,45 @@ const path = require('path')
 const fs = require('fs')
 
 const roundsOfHashing = 10;
+const downloadImage = async (url, dest, name) => {
+  const response = await axios.get(url, { responseType: 'stream' });
+  const writer = fs.createWriteStream(`./statics/${dest}/${name}.png`);
+  response.data.pipe(writer);
+  return new Promise((resolve, reject) => {
+    writer.on('finish', () => {
+      resolve('finish');
+      console.log(`${name} finished.`)
+    });
+    writer.on('error', (error) => {
+      reject();
+      console.log(`${name} error: ${error.message}`);
+    });
+  })
+}
 // initialize Prisma Client
 const prisma = new PrismaClient();
 
 async function main() {
 
-  // const data = require('./data/players.json')
-  // await prisma.player.createMany({ data }) 
+  // const data = require('./data/createGame.json')
+  // const bans = data.bans
+  // const picks = data.picks
+  // const records = data.records
+  // // console.log(bans, picks, records)
+  // await prisma.game.create({ 
+  //   data: {
+  //     ...data,
+  //     bans: {
+  //       create: bans,
+  //     },
+  //     picks: {
+  //       create: picks,
+  //     },
+  //     records: {
+  //       create: records,
+  //     },
+  //   }
+  // }) 
 
   // const des = path.join(__dirname, '/data')
   // const data = await prisma.stage.findMany({ include: { matches: true }})
@@ -23,8 +55,8 @@ async function main() {
   
   
   // create team and player
-  // const teamId = 9255039
-  // const ids = [904131336,312436974,168126336,175311897,123787715];
+  // const teamId = 8588969
+  // const ids = [165110440,424661031,221532774,285282252,326327879];
   // const { data } = await axios.get(`https://api.opendota.com/api/teams/${teamId}`)
   // await prisma.team.create({
   //   data: {
@@ -36,13 +68,13 @@ async function main() {
   //   }
   // })
   // for (let i = 0; i < ids.length; i++) {
-  //   // const { data } = await axios.get(`https://api.opendota.com/api/players/${ids[i]}`)
-  //   const names = ['Munkushi~', 'CHIRA_JUNIOR', 'Cloud', 'swedenstrong', 'RESPECT']
+  //   const { data } = await axios.get(`https://api.opendota.com/api/players/${ids[i]}`)
+  //   // const names = ['nesfeer', 'Ainkrad', 'AfterLife', 'grip', 'pantomem']
   //   await prisma.player.create({
   //     data: {
   //       id: ids[i],
-  //       // nickname: data.profile.name,
-  //       nickname: names[i],
+  //       nickname: data.profile.name,
+  //       // nickname: names[i],
   //       status: 0,
   //       teamId,
   //       position: `${i+1}`,
@@ -50,18 +82,18 @@ async function main() {
   //   })
   // }
 
-  const passwordKvo = await bcrypy.hash('123456', roundsOfHashing);
-  await prisma.user.upsert({
-    where: { email: 'kvo@qq.com' },
-    update: {
-      password: passwordKvo,
-    },
-    create: {
-      email: 'kvo@qq.com',
-      name: 'Kvo',
-      password: passwordKvo,
-    },
-  });
+  // const passwordKvo = await bcrypy.hash('123456', roundsOfHashing);
+  // await prisma.user.upsert({
+  //   where: { email: 'kvo@qq.com' },
+  //   update: {
+  //     password: passwordKvo,
+  //   },
+  //   create: {
+  //     email: 'kvo@qq.com',
+  //     name: 'Kvo',
+  //     password: passwordKvo,
+  //   },
+  // });
 
   // const { data } = await axios.get('https://www.dota2.com/datafeed/herolist?language=schinese')
   // const heroesData = data.result.data.heroes.map(item => ({

@@ -35,7 +35,7 @@ export class MatchesService {
       take: Number(take) || 10, 
       skip: Number(skip) || 0,
       orderBy: [
-        { startTime: 'desc' },
+        { updatedAt: 'desc' },
       ],
       include: {
         tournament: true,

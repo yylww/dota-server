@@ -17,10 +17,10 @@ export class GamesService {
           create: createGameDto.records,
         },
         bans: {
-          connect: createGameDto.bans.map(id => ({ id }))
+          create: createGameDto.bans
         },
         picks: {
-          connect: createGameDto.picks.map(id => ({ id }))
+          create: createGameDto.picks
         },
       }, 
     })
@@ -73,12 +73,6 @@ export class GamesService {
       where: { id },
       data: {
         ...updateGameDto,
-        bans: {
-          set: updateGameDto.bans.map(id => ({ id }))
-        },
-        picks: {
-          set: updateGameDto.picks.map(id => ({ id }))
-        },
       },
     });
   }
