@@ -61,6 +61,20 @@ export class MatchesService {
     return this.prisma.match.findMany();
   }
 
+  findPreview() {
+    return this.prisma.match.findMany({
+      where: {
+        startTime: {
+          gt: new Date('2024-03-10')
+        }
+      },
+      include: {
+        teams: true,
+        games: true,
+      }
+    });
+  }
+
   async findOne(id: number) {
     return this.prisma.match.findUnique({ 
       where: { id },

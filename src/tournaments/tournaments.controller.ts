@@ -3,6 +3,7 @@ import { TournamentsService } from './tournaments.service';
 import { CreateTournamentDto } from './dto/create-tournament.dto';
 import { UpdateTournamentDto } from './dto/update-tournament.dto';
 import { ApiBearerAuth, ApiTags, ApiQuery } from '@nestjs/swagger';
+import { Public } from 'src/auth/public.decorator';
 
 @Controller('tournaments')
 @ApiTags('tournaments')
@@ -28,8 +29,8 @@ export class TournamentsController {
     return this.tournamentsService.findMany(+current, +pageSize, query);
   }
 
+  @Public()
   @Get('/all')
-  @ApiBearerAuth()
   findAll() {
     return this.tournamentsService.findAll();
   }

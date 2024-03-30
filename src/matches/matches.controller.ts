@@ -3,6 +3,7 @@ import { MatchesService } from './matches.service';
 import { CreateMatchDto } from './dto/create-match.dto';
 import { UpdateMatchDto } from './dto/update-match.dto';
 import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
+import { Public } from 'src/auth/public.decorator';
 
 @Controller('matches')
 @ApiTags('matches')
@@ -14,6 +15,7 @@ export class MatchesController {
     return this.matchesService.create(createMatchDto);
   }
 
+  @Public()
   @Get()
   @ApiQuery({ name: 'current', required: false, type: String })
   @ApiQuery({ name: 'pageSize', required: false, type: String })
@@ -27,12 +29,19 @@ export class MatchesController {
     return this.matchesService.findMany(+current, +pageSize, query);
   }
 
+  @Public()
   @Get('/all')
-  @ApiBearerAuth()
   findAll() {
     return this.matchesService.findAll();
   }
 
+  @Public()
+  @Get('/preview')
+  findPreview() {
+    return this.matchesService.findPreview();
+  }
+
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.matchesService.findOne(+id);
